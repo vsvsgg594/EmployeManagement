@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" ></html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/load.css}">
+</head>
+<body>
+    <div class="emp-main-container">
+        <div class="header">
+            <div class="Emp-title">Employee Details</div>
+            <div class="add-emp"><p><a th:href="@{/showform}">Add Employee</a></p></div>
+        </div>
+    </div>
+    <div class="emp-info-container">
+        <table>
+            <tr>
+                <th>Departement Id </th>
+                <th>Employee Name </th>
+                <th>Department</th>
+                <th>salary </th>
+                <th>Joining Date  </th>
+                <th>Email </th>
+                <th>Role</th>
+                <th>Action</th>
+                
+            </tr>
+            <tr th:each="e :${emp}">
+                <td th:text="${e.dp}"></td>
+                <td th:text="${e.name}"></td>
+                <td th:text="${e.department}"></td>
+                <td th:text="${e.salary}"></td>
+                <td th:text="${e.jd}"></td>
+                <td th:text="${e.email}"></td>
+                <td th:text="${e.role}"></td>
+            
+                    <td>
+                        <button><a th:href="@{'deleteEmp/'+${e.id}}">delete</a></button>
+                        <button class="update"><a  th:href="@{'updateEmp/'+${e.id}}">update</a></button>
+                    </td>
+                
+
+            </tr>
+            
+        </table>
+    </div>
+    
+    
+</body>
+</html>
